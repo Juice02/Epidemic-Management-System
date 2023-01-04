@@ -13,6 +13,6 @@ const labSchema = new Schema(
 
 
 
-const Patient=mongoose.model('Patient',patientSchema);
+const Lab=mongoose.model('Lab',labSchema);
 
-module.exports = Patient;
+module.exports = Lab;

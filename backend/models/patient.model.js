@@ -4,7 +4,7 @@ const Schema=mongoose.Schema;
 
 const patientSchema = new Schema(
     {
-    pname:{ type: String,required: true},
+    pname:{ type: String,required: true,unique: true},
     location:{ type: String,required: true},
     age:{ type: Number,required: true},
     status:{ type: String,required: true},
