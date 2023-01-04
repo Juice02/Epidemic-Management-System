@@ -9,7 +9,7 @@ const hospitalSchema = new Schema(
     hlocation:{ type: String,required: true}, 
     nbeds:{ type: Number,required: true},
     nvents:{ type: Number,required: true},              //ventilators
-    nO2:{ type: Number,required: true},                 //Oxygen cylinders
+    nOx:{ type: Number,required: true},                 //Oxygen cylinders
     nvax:{ type: Number,required: true},                //Vaccines
     },
     {

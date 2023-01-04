@@ -15,7 +15,7 @@ router.route('/add').post((req, res) => {
   const hlocation = req.body.hlocation;
   const nbeds = Number(req.body.nbeds);
   const nvents = Number(req.body.nvents);
-  const nO2 = Number(req.body.O2);
+  const nOx = Number(req.body.nOx);
   const nvax = Number(req.body.nvax);
 
 
@@ -25,7 +25,7 @@ router.route('/add').post((req, res) => {
     hlocation,
     nbeds,
     nvents,
-    nO2,
+    nOx,
     nvax
   });
 
@@ -49,10 +49,12 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
   Hospital.findById(req.params.id)
     .then(hos => {
-      hos.username = req.body.username;
-      hos.description = req.body.description;
-      hos.duration = Number(req.body.duration);
-      hos.date = Date.parse(req.body.date);
+        hos.hname = req.body.hname;
+        hos.hlocation = req.body.hlocation;
+        hos.nbeds = Number(req.body.nbeds);
+        hos.nvents = Number(req.body.nvents);
+        hos.nOx = Number(req.body.nOx);
+        hos.nvax = Number(req.body.nvax);
 
       hos.save()
         .then(() => res.json('Hospital Details updated!'))
