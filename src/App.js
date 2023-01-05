@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/navbar-component";
 import Patdata from "./components/patient-data-component";
 import Hosdata from "./components/hospital-data-component";
+import Homepage from "./components/homepage-component";
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
     <div className="container">
     <Navbar /> 
     <br/> 
-        <Routes> 
+        <Routes>
+            <Route path="/" exact element={<Homepage/>} /> 
             <Route path="/pat-list" exact element={<Patdata />} /> 
             <Route path="hos-list" element={<Hosdata />} /> 
         </Routes>

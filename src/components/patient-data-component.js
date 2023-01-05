@@ -9,7 +9,7 @@ const TableRow = ({ item, column }) => (
       {column.map((columnItem) => {
   
         if(columnItem.value.includes('.')) {
-          const itemSplit = columnItem.value.split('.') //['address', 'city']
+          const itemSplit = columnItem.value.split('.')
           return <td>{item[itemSplit[0]][itemSplit[1]]}</td>
         }
   

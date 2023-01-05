@@ -17,7 +17,7 @@ const TableRow = ({ item, column }) => (
       })}
     </tr>
   )
-const Pattable = () =>{
+const Hostable = () =>{
 const [dataTable, setDataTable] = useState([]);
 console.log(dataTable);
 
@@ -64,4 +64,4 @@ useEffect(() => {
 
 }
 
-export default Pattable;
+export default Hostable;
