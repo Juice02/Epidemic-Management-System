@@ -41,7 +41,7 @@ useEffect(() => {
 
       return (
         <div className="App">
-          <h1>Cases Status</h1>
+          <h1>Case Counter</h1>
           <table>
             <thead>
                 <tr>
