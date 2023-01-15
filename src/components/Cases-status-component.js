@@ -40,8 +40,8 @@ useEffect(() => {
       ]
 
       return (
-        <div className="App">
-          <h1>Case Counter</h1>
+        <div className="case_counter_container">
+        <h1>Case Counter</h1>
           <table>
             <thead>
                 <tr>

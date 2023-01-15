@@ -1,23 +1,34 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+
+import {
+  Nav,
+  NavLink,
+  Bars,
+  NavMenu,
+  NavBtn,
+  NavBtnLink
+} from './nav-elements';
 
 export default class Navbar extends Component{
-
   render() {
     return (
-      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-        <Link to="/" className="navbar-brand">Epidemic Management System</Link>
-        <div className="collpase navbar-collapse">
-        <ul className="navbar-nav mr-auto">
-          <li className="navbar-item">
-          <Link to="/pat-list" className="nav-link">Patient Data</Link>
-          </li>
-          <li className="navbar-item">
-          <Link to="/hos-list" className="nav-link">Hospital Data</Link>
-          </li>
-        </ul>
-        </div>
-      </nav>
+      <Nav>
+        <NavLink to='/'>
+        <h1>Epidemic Management System</h1>
+        </NavLink>
+        <Bars />
+        <NavMenu>
+          <NavLink to='/pat-list' activeStyle>
+            Patient Data
+          </NavLink>
+          <NavLink to='/hos-list' activeStyle>
+             Hospital Data
+          </NavLink>
+        </NavMenu>
+        <NavBtn>
+          <NavBtnLink to='/signin'>Log in</NavBtnLink>
+        </NavBtn>
+      </Nav>
     );
   }
 }
