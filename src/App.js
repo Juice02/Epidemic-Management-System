@@ -8,7 +8,7 @@ import Navbar from "./components/navbar-component";
 import Patdata from "./components/patient-data-component";
 import Hosdata from "./components/hospital-data-component";
 import CaseStatus from "./components/Cases-status-component";
-
+import Activemap from "./components/active-map";
 
 function App() {
 
@@ -16,11 +16,14 @@ function App() {
     <Router>
     <Navbar /> 
     <br/> 
+   
         <Routes>
-            <Route path="/" exact element={<CaseStatus/>} /> 
+            
+            <Route path="/" element={<Activemap/>} /> 
             <Route path="/pat-list" exact element={<Patdata />} /> 
             <Route path="hos-list" element={<Hosdata />} /> 
         </Routes> 
+     
 </Router>
   );
 }
