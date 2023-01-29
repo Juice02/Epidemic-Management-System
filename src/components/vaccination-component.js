@@ -7,23 +7,27 @@ var arr =['Slot1','Slot2','Slot3']
 
 
 export default function Form(props) {
-    const [user, setName] = useState('');
+  const [user, setName] = useState('');
   const [adhar, setAdhar] = useState('');
-  const [hos, setHos] = useState('');
+  const [hos, setHos] = useState([]);
   const [dates, setDate] = useState('');
   const [slot, setSlot] = useState('');
   const [re,setRe]=useState('');
-
+  const[hospital,setHospital]=useState('');
   function handleNameChange(event) {
     setName(event.target.value)
   }
 
   function handleAdharChange(event) {
+    if(event.target.value.length>12){
+      alert("cannot be over 12 digits");
+    }
+    else
     setAdhar(event.target.value)
   }
 
   function handleHosChange(event) {
-    setHos(event.target.value)
+    setHospital(event.target.value)
   }
 
   function handleDateChange(event) {
@@ -52,22 +56,27 @@ export default function Form(props) {
   async function fetchData() {
     try {
       const res = await axios.get('http://localhost:5000/hospitals');
+      
       return res.data;
     } catch (err) {
       console.log(err);
     }
    
   }
+
   useEffect(() => {
     fetchData()
       .then(data => {
         setHos(data)
-        console.log(hos[0].hname)
-        console.log(hos[1].hname)
+       
       })
       
-    
+      setRe(Math.random());
   }, [])
+ 
+  console.log(hos)
+  console.log(Array.isArray(hos));
+  
 
   
   return (
@@ -90,15 +99,21 @@ export default function Form(props) {
           onChange={handleAdharChange}
         />
       </label>
-      <label>
-        Hospital:
-        <input
-          type="text"
-          name="name"
-          value={hos}
-          onChange={handleHosChange}
-        />
-      </label>
+      <label>Hospital: </label>
+    <select 
+        required
+        className="form-control"
+        value={hospital}
+        onChange={handleHosChange}>
+        {
+          hos.map(function(user) {
+            return <option 
+              
+              value={user.hname}>{user.hname}
+              </option>;
+          })
+        }
+    </select>
       <label>Date: </label>
           <div>
             <DatePicker
@@ -115,7 +130,7 @@ export default function Form(props) {
               {
                 arr.map(function(user) {
                   return <option 
-                    key={user}
+                    
                     value={user}>{user}
                     </option>;
                 })
