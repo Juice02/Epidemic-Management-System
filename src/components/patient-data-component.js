@@ -32,6 +32,7 @@ useEffect(() => {
     
 
     const column = [
+        { heading: 'Patient ID', value: 'pid' },
         { heading: 'Name', value: 'pname' },
         { heading: 'Location', value: 'location'},
         { heading: 'Age', value:'age'},

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './form.css';
-var sta=[]
 
-export default class CreateExercise extends Component {
+
+export default class EditPatient extends Component {
   constructor(props) {
     super(props);
 
@@ -26,6 +25,23 @@ export default class CreateExercise extends Component {
       }
   }
 
+  componentDidMount() {
+    axios.get('http://localhost:5000/patients/'+this.props.match.params.id)
+      .then(response => {
+        this.setState({
+            pid: response.data.pid,
+            pname: response.data.pname,
+            location:response.data.location,
+            age:response.data.age,
+            status:response.data.status,
+            p_history:response.data.p_history
+        })   
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+
+  }
 
   onChangePid(e) {
     this.setState({
@@ -79,23 +95,16 @@ export default class CreateExercise extends Component {
 
     console.log(patient);
 
-    axios.post('http://localhost:5000/patients/add', patient)
+    axios.post('http://localhost:5000/patients/update/'+this.props.match.params.id, patient)
       .then(res => console.log(res.data));
 
     window.location = '/pat-list';
   }
 
-sta=[
-    'Active',
-    'Recovered',
-    'Deceased'
-    ]
-
-
   render() {
     return (
     <div>
-      <h3>Create New Patient Log</h3>
+      <h3>Edit Patient Log</h3>
       <form onSubmit={this.onSubmit}>
       <div className="form-group"> 
       <label>Patient ID: </label>

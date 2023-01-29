@@ -10,6 +10,7 @@ router.route('/').get((req, res) => {
 
 
 router.route('/add').post((req, res) => {
+  const pid =req.body.pid;
   const pname = req.body.pname;
   const location= req.body.location;
   const age= Number(req.body.age);
@@ -17,6 +18,7 @@ router.route('/add').post((req, res) => {
   const p_history= req.body.p_history;
 
   const newpatient = new Patient({
+    pid,
     pname,
     location,
     age,
