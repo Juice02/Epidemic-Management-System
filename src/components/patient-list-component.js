@@ -1,69 +1,77 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import './pattable.css';
+console.log("executed1")
 const Patient = props => (
   <tr>
+    <td>{props.patient.pid}</td>
     <td>{props.patient.pname}</td>
-    <td>{props.patient.description}</td>
-    <td>{props.exercise.duration}</td>
-    <td>{props.exercise.date.substring(0,10)}</td>
+    <td>{props.patient.location}</td>
+    <td>{props.patient.age}</td>
+    <td>{props.patient.status}</td>
+    <td>{props.patient.p_history}</td>
     <td>
-      <Link to={"/edit/"+props.exercise._id}>edit</Link> | <a href="#" onClick={() => { props.deleteExercise(props.exercise._id) }}>delete</a>
+      <Link to={"/edit/"+props.patient._id}>edit</Link> | <a href="#" onClick={() => { props.deletePatient(props.patient._id) }}>delete</a>
     </td>
+    {console.log("/edit/"+props.patient._id)}
   </tr>
 )
-
-export default class ExercisesList extends Component {
+console.log("executed2")
+export default class PatientsList extends Component {
   constructor(props) {
     super(props);
 
-    this.deleteExercise = this.deleteExercise.bind(this)
+    this.deletePatient = this.deletePatient.bind(this)
 
-    this.state = {exercises: []};
+    this.state = {patients: []};
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/exercises/')
+    axios.get('http://localhost:5000/patients/')
       .then(response => {
-        this.setState({ exercises: response.data })
+        this.setState({ patients: response.data })
+        console.log(response.data)
       })
       .catch((error) => {
         console.log(error);
       })
   }
 
-  deleteExercise(id) {
-    axios.delete('http://localhost:5000/exercises/'+id)
+  deletePatient(id) {
+    axios.delete('http://localhost:5000/patients/'+id)
       .then(response => { console.log(response.data)});
 
     this.setState({
-      exercises: this.state.exercises.filter(el => el._id !== id)
+      patients: this.state.patients.filter(el => el._id !== id)
     })
   }
 
-  exerciseList() {
-    return this.state.exercises.map(currentexercise => {
-      return <Exercise exercise={currentexercise} deleteExercise={this.deleteExercise} key={currentexercise._id}/>;
+  patientList() {
+    return this.state.patients.map(currentpatient => {
+      return <Patient patient={currentpatient} deletePatient={this.deletePatient} key={currentpatient._id}/>;
     })
   }
 
   render() {
+    
     return (
       <div>
-        <h3>Logged Exercises</h3>
+        <h3>Logged Patients</h3>
         <table className="table">
           <thead className="thead-light">
             <tr>
-              <th>Username</th>
-              <th>Description</th>
-              <th>Duration</th>
-              <th>Date</th>
-              <th>Actions</th>
+              <th>Pid</th>
+              <th>Name</th>
+              <th>Location</th>
+              <th>Age</th>
+              <th>Status</th>
+              <th>Med. History</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            { this.exerciseList() }
+            { this.patientList() }
           </tbody>
         </table>
       </div>

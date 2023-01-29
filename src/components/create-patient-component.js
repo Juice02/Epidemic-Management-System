@@ -68,7 +68,7 @@ export default class CreateExercise extends Component {
 
     const patient = {
 
-        pid: this.state.pname,
+        pid: this.state.pid,
         pname: this.state.pname,
         location:this.state.location,
         age:this.state.age,

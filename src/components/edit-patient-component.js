@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import './form.css';
+var sta=[]
 
 export default class EditPatient extends Component {
   constructor(props) {
@@ -25,23 +26,6 @@ export default class EditPatient extends Component {
       }
   }
 
-  componentDidMount() {
-    axios.get('http://localhost:5000/patients/'+this.props.match.params.id)
-      .then(response => {
-        this.setState({
-            pid: response.data.pid,
-            pname: response.data.pname,
-            location:response.data.location,
-            age:response.data.age,
-            status:response.data.status,
-            p_history:response.data.p_history
-        })   
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-
-  }
 
   onChangePid(e) {
     this.setState({
@@ -84,7 +68,7 @@ export default class EditPatient extends Component {
 
     const patient = {
 
-        pid: this.state.pname,
+        pid: this.state.pid,
         pname: this.state.pname,
         location:this.state.location,
         age:this.state.age,
@@ -100,6 +84,13 @@ export default class EditPatient extends Component {
 
     window.location = '/pat-list';
   }
+
+sta=[
+    'Active',
+    'Recovered',
+    'Deceased'
+    ]
+
 
   render() {
     return (
@@ -172,7 +163,7 @@ export default class EditPatient extends Component {
         </div>
 
         <div className="form-group">
-          <input type="submit" value="Create Patient Log" className="btn btn-primary" />
+          <input type="submit" value="Edit Patient Log" className="btn btn-primary" />
         </div>
       </form>
     </div>

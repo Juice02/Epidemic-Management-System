@@ -18,7 +18,7 @@ export default class Navbar extends Component{
         </NavLink>
         <Bars />
         <NavMenu>
-          <NavLink to='/Create-pat' activeStyle>
+          <NavLink to='/create' activeStyle>
             New Patient
           </NavLink>
           <NavLink to='/hos-list' activeStyle>

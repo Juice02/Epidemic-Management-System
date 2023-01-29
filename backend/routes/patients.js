@@ -38,4 +38,22 @@ router.route('/:id').delete((req, res) => {
       .catch(err => res.status(400).json('Error: ' + err));
   });
 
+  router.route('/update/:id').post((req, res) => {
+    Patient.findById(req.params.id)
+      .then(pat => {
+        pat.pid =req.body.pid;
+        pat.pname = req.body.pname;
+        pat.location= req.body.location;
+        pat.age= Number(req.body.age);
+        pat.status= req.body.status;
+        pat.p_history= req.body.p_history;
+  
+        pat.save()
+          .then(() => res.json('Patient Details updated!'))
+          .catch(err => res.status(400).json('Error: ' + err));
+      })
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
+
+
 module.exports = router;
