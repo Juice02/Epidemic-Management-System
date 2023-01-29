@@ -43,7 +43,7 @@ const MyComponent = () => {
 
 
 
-console.log(arr)
+console.log(markers.position)
   
   return (
     <Map center={[12.9716, 77.5946]} zoom={12}>
@@ -52,7 +52,7 @@ console.log(arr)
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
       <div>
-        {arr.map((item,index)=><Marker key={Math.random()*100000} position={item}/>)}
+        {markers.map((item,index)=><Marker key={Math.random()*100000} position={markers.position}/>)}
         
         
       </div>
