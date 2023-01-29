@@ -1,5 +1,5 @@
 const router = require('express').Router();
-let vaccines = require('../models/vacc-booking.model');
+let vaccines = require('../models/booking.model');
 
 router.route('/').get((req, res) => {
   vaccines.find()
@@ -23,7 +23,7 @@ router.route('/add').post((req, res) => {
   });
 
   newVaccine.save()
-  .then(() => res.json('slot availabel'))
+  .then(() => res.json('slot available'))
   .catch(err => res.status(400).json('Error: ' + err));
 });
 

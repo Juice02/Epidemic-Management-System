@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const Vacc_BookingSchema = new Schema({
+const BookingSchema = new Schema({
   username: { type: String, required: true },
   adharcard: { type: Number, required: true,minlength: 12,maxlength: 12 },
   hospital_name: { type: String, required: true },
@@ -12,6 +12,6 @@ const Vacc_BookingSchema = new Schema({
   timestamps: true,
 });
 
-const Vacc_Booking = mongoose.model('Vacc_Booking', Vacc_BookingSchema);
+const booking = mongoose.model('booking', BookingSchema);
 
-module.exports = Vacc_Booking;
+module.exports = booking;

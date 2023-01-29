@@ -18,8 +18,8 @@ export default class Navbar extends Component{
         </NavLink>
         <Bars />
         <NavMenu>
-          <NavLink to='/create' activeStyle>
-            New Patient
+          <NavLink to='/vacc-booking' activeStyle>
+            Vaccination
           </NavLink>
           <NavLink to='/hos-list' activeStyle>
             Hospital Data
