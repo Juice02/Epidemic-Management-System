@@ -52,6 +52,9 @@ export default class PatientsList extends Component {
       return <Patient patient={currentpatient} deletePatient={this.deletePatient} key={currentpatient._id}/>;
     })
   }
+//  handleClick(){
+//   console.log('clicked')
+//  }
 
   render() {
     
@@ -74,6 +77,8 @@ export default class PatientsList extends Component {
             { this.patientList() }
           </tbody>
         </table>
+        <button onClick={()=>window.location = '/create'} className='booty'>
+        CREATE NEW</button>
       </div>
     )
   }

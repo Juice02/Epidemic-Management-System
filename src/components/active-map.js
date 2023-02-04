@@ -2,65 +2,45 @@ import React, { useState, useEffect } from 'react';
 import {MapContainer as Map, TileLayer, Marker } from 'react-leaflet';
 import axios from 'axios';
 import './active-map.css';
-import {OpenStreetMapProvider} from 'leaflet-geosearch';
-var arr=[];
+import {GeoSearchControl as GeoSearch} from 'leaflet-geosearch';
 
 const MyComponent = () => {
   const [dataTable, setDataTable] = useState([]);
   const [markers, setMarkers] = useState([]);
 
- 
-
-
+  
   useEffect(() => {
     axios('http://localhost:5000/patients/')
       .then(res => {
         setDataTable(res.data);
-       
-        const provider = new OpenStreetMapProvider();
-        let address = res.data.map((elem) =>{
-            console.log(elem.location)
-
-            provider.search({ query: elem.location })
+        const provider = new GeoSearch.OpenStreetMapProvider();
+        const addresses = res.data.map(patient => patient.location);
+        console.log(addresses)
+        provider.search({ query: dataTable.location })
           .then(results => {
-            
-            const markers = results.map(result => {arr.push([result.y,result.x]) 
+            const markers = results.map(result => {
               return {
-                
-                key: elem,
+                key: result.x,
                 position: [result.y, result.x]
               };
-              
             });
-            setMarkers(markers);
+            setMarkers(markers);console.log(dataTable.location)
           });
- 
-          })
-        
       })
       .catch(err => console.log(err))
   }, []);
 
-
-
-console.log(markers.position)
-  
   return (
     <Map center={[12.9716, 77.5946]} zoom={12}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
-      <div>
-        {markers.map((item,index)=><Marker key={Math.random()*100000} position={markers.position}/>)}
-        
-        
-      </div>
+      {markers.map(marker => (
+        <Marker key={marker.key} position={marker.position} />
+      ))}
     </Map>
-  ); 
+  );
 
-
-
-}
-
-export default MyComponent;
+      }
+  export default MyComponent;

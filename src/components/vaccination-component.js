@@ -2,6 +2,7 @@ import react, { useState } from 'react'
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import { useEffect } from 'react';
+import "./vacc.css";
 
 var arr =['Slot1','Slot2','Slot3']
 
@@ -10,7 +11,7 @@ export default function Form(props) {
   const [user, setName] = useState('');
   const [adhar, setAdhar] = useState('');
   const [hos, setHos] = useState([]);
-  const [dates, setDate] = useState('');
+  const [dates, setDate] = useState();
   const [slot, setSlot] = useState('');
   const [re,setRe]=useState('');
   const[hospital,setHospital]=useState('');
@@ -27,13 +28,15 @@ export default function Form(props) {
   }
 
   function handleHosChange(event) {
+    console.log(typeof event)
     setHospital(event.target.value)
   }
 
   function handleDateChange(event) {
     console.log(event)
+    console.log(typeof event)
     setDate(event)
-
+    
   }
 
   function handleSlotChange(event) {
@@ -44,13 +47,19 @@ export default function Form(props) {
     const obj={
         username:user,
         adharcard:adhar,
-        hospital_name: hos,
-        date: dates,
+        hospital_name: hospital,
+        date: JSON.stringify(dates),
         slot_number:slot
     }
-    axios.post('http://localhost:5000/bookings/add', obj)
-      .then(res => {console.log(res)})
+    event.preventDefault();
+    window.location = '/';
+ 
+    axios.post('http://localhost:5000/bookings/add',obj)
+      .then(res => {console.log(res)
+      })
       .catch(err => console.log(err));
+      
+     
   }
 
   async function fetchData() {
@@ -80,6 +89,8 @@ export default function Form(props) {
 
   
   return (
+    <div>
+      <h1>Vaccination Booking</h1>
     <form onSubmit={handleSubmit}>
       <label>
         Username:
@@ -139,6 +150,7 @@ export default function Form(props) {
       <br />
       <button type="submit">Submit</button>
     </form>
+    </div>
   );
 
 }

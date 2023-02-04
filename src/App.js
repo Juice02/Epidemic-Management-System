@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css"
 
-
+import Combine from "./components/combined-component";
 import Navbar from "./components/navbar-component";
 import Hosdata from "./components/hospital-data-component";
 import CaseStatus from "./components/Cases-status-component";
@@ -24,8 +24,9 @@ function App() {
     <br/> 
    
         <Routes>
+             
             
-            <Route path="/" element={<CaseStatus/>} /> 
+             <Route path="/" element={<Combine/>} /> 
             <Route path="/vacc-booking" element={<Newvax/>} />
             <Route path="/create" element={<CreatePat />} />
             <Route path="/edit/:id" exact element={<Patedit/>} />

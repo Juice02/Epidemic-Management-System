@@ -21,6 +21,9 @@ export default class Navbar extends Component{
           <NavLink to='/vacc-booking' activeStyle>
             Vaccination
           </NavLink>
+          <NavLink to='/pat-list' activeStyle>
+            Patient Data
+          </NavLink>
           <NavLink to='/hos-list' activeStyle>
             Hospital Data
           </NavLink>

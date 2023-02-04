@@ -12,12 +12,13 @@ table {
 th {
   background-color: #ddd;
   padding: 8px;
-  text-align: left;
+  text-align: center;
   border-bottom: 1px solid black;
 }
 
 td {
   padding: 8px;
+  text-align: center;
   border-bottom: 1px solid #ddd;
 }
 
