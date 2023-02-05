@@ -10,7 +10,7 @@ import CaseStatus from "./components/Cases-status-component";
 import CreatePat from "./components/create-patient-component";
 import Patedit from "./components/edit-patient-component";
 import Activemap from "./components/active-map";
-import Obj from "./components/patient-list-component";
+import Obj from "./components/patient-search";
 import Vaccination from "./components/vaccines";
 import Newvax from "./components/vaccination-component";
 

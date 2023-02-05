@@ -4,8 +4,9 @@ import DatePicker from 'react-datepicker';
 import { useEffect } from 'react';
 import "./vacc.css";
 
-var arr =['Slot1','Slot2','Slot3']
 
+var arr =['Slot1','Slot2','Slot3']
+var xy=""
 
 export default function Form(props) {
   const [user, setName] = useState('');
@@ -13,8 +14,15 @@ export default function Form(props) {
   const [hos, setHos] = useState([]);
   const [dates, setDate] = useState();
   const [slot, setSlot] = useState('');
-  const [re,setRe]=useState('');
-  const[hospital,setHospital]=useState('');
+  const [re,setRe]=useState();
+  const [id,setId]=useState('63d6870faea4cc23849192e1');
+  const[hospital,setHospital]=useState('Dayanand Swaggar');
+  
+  useEffect(()=>{
+    
+  },[re])
+  
+  
   function handleNameChange(event) {
     setName(event.target.value)
   }
@@ -28,9 +36,19 @@ export default function Form(props) {
   }
 
   function handleHosChange(event) {
-    console.log(typeof event)
+    
     setHospital(event.target.value)
-  }
+
+      for(let i=0;i<hos.length;i++)
+      {
+        if(hospital===hos[i].hname)
+        {
+          setId(hos[i]._id)
+        }
+      }
+        setRe(Math.random())
+        }
+  
 
   function handleDateChange(event) {
     console.log(event)
@@ -43,6 +61,8 @@ export default function Form(props) {
     setSlot(event.target.value)
   }
 
+  console.log("Rendered")
+ 
   function handleSubmit(event) {
     const obj={
         username:user,
@@ -51,15 +71,57 @@ export default function Form(props) {
         date: JSON.stringify(dates),
         slot_number:slot
     }
+
+
     event.preventDefault();
-    window.location = '/';
+    
  
     axios.post('http://localhost:5000/bookings/add',obj)
       .then(res => {console.log(res)
       })
       .catch(err => console.log(err));
       
-     
+     console.log(obj.hospital_name);
+ 
+
+     for(let i=0;i<hos.length;i++)
+        {
+           
+            if(hos[i].hname===hospital)
+            {
+              const l= hos[i]._id;
+               setRe(Math.random())
+               console.log((hos[i]._id))
+                console.log(hos[i].hname)
+                console.log(hos[i].hlocation)
+                console.log(hos[i].nbeds)
+                console.log(hos[i].nvents)
+                console.log(hos[i].nOx)
+               console.log(hos[i].nvax)
+
+               const nobj={
+                // id:hos[i]._id,
+                hname: hos[i].hname,
+                hlocation: hos[i].hlocation,
+                nbeds: hos[i].nbeds,
+                nvents: hos[i].nvents,
+                nOx: hos[i].nOx,
+                nvax: hos[i].nvax-1,
+
+              }
+              console.log(l)
+              setId(l)
+              console.log(id)
+              
+              axios.post(`http://localhost:5000/hospitals/update/${l}`,nobj)
+              .then(res=>{console.log(res)})
+              .catch(err=>{console.log(err)})
+              
+              break;
+                
+            }
+        }
+
   }
 
   async function fetchData() {
@@ -83,8 +145,7 @@ export default function Form(props) {
       setRe(Math.random());
   }, [])
  
-  console.log(hos)
-  console.log(Array.isArray(hos));
+ 
   
 
   

@@ -5,7 +5,7 @@ const Schema=mongoose.Schema;
 const hospitalSchema = new Schema(
     {
     
-    hname:{ type: String,required: true,unique: true},
+    hname:{ type: String,required: true},
     hlocation:{ type: String,required: true}, 
     nbeds:{ type: Number,required: true},
     nvents:{ type: Number,required: true},              //ventilators

@@ -9,5 +9,26 @@
 body {
   background-color: #AFE3C0;
 }
+.patient{
+  max-width: 500px;
+  background:white;
+  border:solid;
+  margin:0 auto;
+}
+.search{
+  display:flex;
+  justify-content: space-between;
+}
+.butt{
+  background-color: lightblue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
+.butt:hover {
+  background-color: rgb(140, 140, 230);
+}
 

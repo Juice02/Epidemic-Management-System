@@ -44,7 +44,7 @@ router.route('/:id').delete((req, res) => {
         pat.pid =req.body.pid;
         pat.pname = req.body.pname;
         pat.location= req.body.location;
-        pat.age= Number(req.body.age);
+        pat.age= Number(req.body.age) ;
         pat.status= req.body.status;
         pat.p_history= req.body.p_history;
   
@@ -55,5 +55,6 @@ router.route('/:id').delete((req, res) => {
       .catch(err => res.status(400).json('Error: ' + err));
   });
 
+  
 
 module.exports = router;

@@ -34,5 +34,21 @@ router.route('/:id').get((req, res) => {
 });
 
 
+router.route('/update/:id').post((req, res) => {
+  Patient.findById(req.params.id)
+    .then(pat => {
+      pat.username = req.body.username;
+      pat.adharcard = req.body.adharcard;
+      pat.hospital_name= req.body.hospital_name ;
+      pat.date = Date.parse(req.body.date);
+      pat.slot_number = req.body.slot_number;
+
+      pat.save()
+        .then(() => res.json('Booking Details updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 
 module.exports = router;
