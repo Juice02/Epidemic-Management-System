@@ -1,32 +1,33 @@
 .case_counter_container {
+  margin: 2rem auto;
   width: 50%;
-  margin: 0 auto;
   text-align: center;
+  background-color: #b1c2a8;
+  border-radius: 5px;
 }
 
 table {
+  margin: 1rem auto;
   width: 100%;
   border-collapse: collapse;
+  border-radius: 5px;
 }
 
 th {
-  background-color: #ddd;
-  padding: 8px;
-  text-align: center;
-  border-bottom: 1px solid black;
+  background-color: #5d5c61;
+  color: black;
+  padding: 1rem;
+  text-align: left;
 }
 
 td {
-  padding: 8px;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
+  border: 1px solid #333;
+  padding: 1rem;
+  text-align: left;
 }
 
 h1 {
-  font-size: 1.5em;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
 }

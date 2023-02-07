@@ -1,6 +1,6 @@
 import {useEffect,useState} from 'react';
 import axios from 'axios';
-
+import "../App.css";
 export default function Form(props) {
     const [userName, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -33,7 +33,7 @@ export default function Form(props) {
             console.log("true");
             if(data[i].password===password)
             console.log("Signin is successful");
-            window.location = '/';  
+            window.location = '/post-login';  
             event.preventDefault(); 
       }
       else
@@ -77,7 +77,7 @@ export default function Form(props) {
      
       <form onSubmit={handleSubmit}>
         <label>
-          Login ID:
+          Hospital ID:
           <input
             type="text"
             name="name"
@@ -86,7 +86,7 @@ export default function Form(props) {
           />
         </label>
         <label>
-         password:
+         Password:
           <input
             type="text"
             name="name"
@@ -99,9 +99,12 @@ export default function Form(props) {
        
            
         <br />
-        <button type="submit">Log In</button>
+        <button type="submit">Submit</button>
+        
       </form>
-      <button type="random">Sign Up</button>
+      <div>
+      <button onClick={()=>window.location = '/signup'} className='hellopat1'>Sign Up</button>
+      </div>
       </div>
   
     );

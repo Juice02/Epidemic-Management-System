@@ -32,7 +32,11 @@ export default function Form(props) {
    .catch(err => console.log(err));
  
   console.log(obj.signup_userName);
-     }
+
+  window.location='/signin'
+  event.preventDefault();
+     
+}
 
    
    console.log(data);
@@ -43,7 +47,7 @@ export default function Form(props) {
      
       <form onSubmit={handleSubmit}>
         <label>
-          Username :
+          Hospital Id:
           <input
             type="text"
             name="name"
@@ -52,13 +56,14 @@ export default function Form(props) {
           />
         </label>
         <label>
-        Enter new password:
+        Password:
           <input
             type="text"
             name="name"
             value={password}
             onChange={handlepasswordChange}
           />
+          <p>Remember your password. Forgot Password Not Available.</p>
         </label>
         
       

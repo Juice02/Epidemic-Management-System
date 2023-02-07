@@ -8,6 +8,7 @@ import Dial from "./Dialog.js"
 var arr =['Slot1','Slot2','Slot3']
 
 let booking_id = Math.floor((Math.random() * 100000000000) + 1);
+const title="Booking Confirmed!"
 
 export default function Form(props) {
   const [user, setName] = useState('');
@@ -164,7 +165,7 @@ export default function Form(props) {
   
   return (
     <div>
-   { pop && <Dial data={booking_id} handlePopUp={handlePopUp}/>}
+   { pop && <Dial title={title} data={booking_id} handlePopUp={handlePopUp}/>}
       <h1>Vaccination Booking</h1>
     <form onSubmit={handleSubmit}>
       <label>

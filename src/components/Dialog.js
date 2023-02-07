@@ -10,12 +10,14 @@ const Dial = (props) => {
     function handleClick(event) {
         setOpen(false)
         props.handlePopUp();
+        window.location='/';
+        
     }
     return ( 
     <div>
     <Button onClick={()=>setOpen(true)}>Open Dialog </Button>
     <Dialog  open={open} onClose={()=> setOpen(false)}>
-    <DialogTitle>Booking Confirmed</DialogTitle>
+    <DialogTitle>{props.title}</DialogTitle>
     <DialogContent>
     <DialogContentText>
        

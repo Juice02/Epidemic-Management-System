@@ -1,40 +1,53 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import './Navbar.css';
 
-import {
-  Nav,
-  NavLink,
-  Bars,
-  NavMenu,
-  NavBtn,
-  NavBtnLink
-} from './nav-elements';
+export default class Navbar extends Component {
+  state = {
+    isMenuOpen: false
+  };
 
-export default class Navbar extends Component{
+  toggleMenu = () => {
+    this.setState(prevState => ({ isMenuOpen: !prevState.isMenuOpen }));
+  };
+
   render() {
     return (
-      <Nav>
-        <NavLink to='/'>
-        <h1>Epidemic Management System</h1>
+      <nav className='navbar'>
+        <NavLink to='/' className='navbar-brand'>
+          Epidemic Management System
         </NavLink>
-        <Bars />
-        <NavMenu>
-          <NavLink to='/vacc-booking' activeStyle>
+        <button
+          className='navbar-toggler'
+          onClick={this.toggleMenu}
+          aria-label='Toggle navigation'
+        >
+          <i className='fas fa-bars'></i>
+        </button>
+        <div
+          className={`navbar-menu ${
+            this.state.isMenuOpen ? 'is-active' : ''
+          }`}
+        >
+          <NavLink
+            to='/vacc-booking'
+            className='navbar-item'
+            activeClassName='is-active'
+          >
             Vaccination
           </NavLink>
-          <NavLink to='/pat-list' activeStyle>
-            Patient Data
-          </NavLink>
-          <NavLink to='/hos-list' activeStyle>
+          <NavLink
+            to='/hos-list'
+            className='navbar-item'
+            activeClassName='is-active'
+          >
             Hospital Data
           </NavLink>
-          <NavLink to='/signup' activeStyle>
-          lolol
+        </div>
+        <NavLink to='/signin' className='navbar-item navbar-btn'>
+          Log in
         </NavLink>
-        </NavMenu>
-        <NavBtn>
-          <NavBtnLink to='/signin'>Log in</NavBtnLink>
-        </NavBtn>
-      </Nav>
+      </nav>
     );
   }
 }

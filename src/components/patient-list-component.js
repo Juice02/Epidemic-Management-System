@@ -12,7 +12,7 @@ const Patient = props => (
     <td>{props.patient.status}</td>
     <td>{props.patient.p_history}</td>
     <td>
-      <Link to={"/edit/"+props.patient._id}>edit</Link> | <a href="#" onClick={() => { props.deletePatient(props.patient._id) }}>delete</a>
+      <Link to={"/edit/"+props.patient._id}>Edit</Link> | <a href="#" onClick={() => { props.deletePatient(props.patient._id) }}>Delete</a>
     </td>
     {console.log("/edit/"+props.patient._id)}
   </tr>
