@@ -36,7 +36,7 @@ function App() {
              <Route path="/signup" element={<Signup />} /> 
              <Route path="/post-login" element={<Post_log />} /> 
              <Route path="/signin" element={<Login />} /> 
-             <Route path="/" element={<CaseStatus/>} /> 
+             <Route path="/" element={<Combine/>} /> 
              <Route path="/ye" element={<XY/>} /> 
             <Route path="/vacc-booking" element={<Newvax/>} />
             <Route path="/create" element={<CreatePat />} />
