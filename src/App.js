@@ -27,7 +27,7 @@ function App() {
         <Routes>
              
             
-             <Route path="/" element={<Combine/>} /> 
+             <Route path="/" element={<CaseStatus/>} /> 
              <Route path="/ye" element={<XY/>} /> 
             <Route path="/vacc-booking" element={<Newvax/>} />
             <Route path="/create" element={<CreatePat />} />
