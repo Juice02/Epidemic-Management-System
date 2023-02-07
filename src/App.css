@@ -10,25 +10,53 @@ body {
   background-color: #AFE3C0;
 }
 .patient{
-  max-width: 500px;
+  max-width: 700px;
   background:white;
   border:solid;
+  
   margin:0 auto;
+  border-radius: 5px;
 }
 .search{
   display:flex;
   justify-content: space-between;
+  width:1000px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  
 }
 .butt{
-  background-color: lightblue;
+  background-color: rgb(140, 140, 230);
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  height: 50px;
 }
 
 .butt:hover {
-  background-color: rgb(140, 140, 230);
+  background-color: rgb(120, 140, 130);
 }
 
+.hellopat {
+  width: 200px;
+  height: 60px;
+  font-size: 20px;
+  border-radius: 25px;
+  border: none;
+  background-color:rgb(140, 140, 230);
+  color: #FFFFFF;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0px 4px #B0E0E6;
+  transition: all 0.3s;
+ margin-left: 500px;
+ margin-top: 50px;
+}
+
+.hellopat:hover {
+  box-shadow: 0px 0px #B0E0E6;
+  background-color: gray;
+}

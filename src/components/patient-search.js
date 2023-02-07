@@ -59,6 +59,7 @@ export default function Form(props) {
                 setHis(hos[i].p_history);
             }
         }
+        
         }
 
 
@@ -70,7 +71,7 @@ export default function Form(props) {
         <div className='search'>
         <input
           type="text"
-          placeholder="Patient Id Here"
+          placeholder="Enter Patient Id Here"
             value={val}
             onChange={handleChange}
         />
@@ -86,7 +87,10 @@ export default function Form(props) {
         <h4>Status:{status}</h4>
         <h4> History:{history}</h4>
         </div>
-
+        <div>
+    <button onClick={()=>window.location = '/create'} className='hellopat'>
+        CREATE NEW</button>
+    </div>
         </div>
 
       );

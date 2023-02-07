@@ -3,10 +3,10 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import { useEffect } from 'react';
 import "./vacc.css";
-
+import Dial from "./Dialog.js"
 
 var arr =['Slot1','Slot2','Slot3']
-var xy=""
+
 
 export default function Form(props) {
   const [user, setName] = useState('');
@@ -16,7 +16,7 @@ export default function Form(props) {
   const [slot, setSlot] = useState('');
   const [re,setRe]=useState();
   const [id,setId]=useState('63d6870faea4cc23849192e1');
-  const[hospital,setHospital]=useState('Dayanand Swaggar');
+  const[hospital,setHospital]=useState('Dayanand Sagar');
   
   useEffect(()=>{
     
@@ -71,10 +71,19 @@ export default function Form(props) {
         date: JSON.stringify(dates),
         slot_number:slot
     }
-
+    
+    async function getRandomIntInclusive(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+    }
+    const booking_id=getRandomIntInclusive(0,10000000000);
+    console.log(booking_id)
 
     event.preventDefault();
     
+    
+
  
     axios.post('http://localhost:5000/bookings/add',obj)
       .then(res => {console.log(res)
@@ -121,7 +130,7 @@ export default function Form(props) {
                 
             }
         }
-
+        
   }
 
   async function fetchData() {
@@ -147,10 +156,11 @@ export default function Form(props) {
  
  
   
-
+const datas="suwiiii"
   
   return (
     <div>
+      <Dial data={datas}/>
       <h1>Vaccination Booking</h1>
     <form onSubmit={handleSubmit}>
       <label>
@@ -211,7 +221,9 @@ export default function Form(props) {
       <br />
       <button type="submit">Submit</button>
     </form>
+    
     </div>
+
   );
 
 }

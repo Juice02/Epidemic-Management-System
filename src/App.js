@@ -13,6 +13,7 @@ import Activemap from "./components/active-map";
 import Obj from "./components/patient-search";
 import Vaccination from "./components/vaccines";
 import Newvax from "./components/vaccination-component";
+import XY from "./components/Dialog";
 
 
 
@@ -27,13 +28,14 @@ function App() {
              
             
              <Route path="/" element={<Combine/>} /> 
+             <Route path="/ye" element={<XY/>} /> 
             <Route path="/vacc-booking" element={<Newvax/>} />
             <Route path="/create" element={<CreatePat />} />
             <Route path="/edit/:id" exact element={<Patedit/>} />
             <Route path="/pat-list" element={<Obj/>} /> 
             <Route path="hos-list" exact element={<Hosdata />} /> 
         </Routes> 
-     
+        
 </Router>
   );
 }
