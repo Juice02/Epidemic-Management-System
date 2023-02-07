@@ -8,6 +8,7 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
+  const booking_id=req.body.booking_id;
   const username = req.body.username;
   const adharcard = req.body.adharcard;
   const  hospital_name= req.body.hospital_name ;
@@ -15,6 +16,7 @@ router.route('/add').post((req, res) => {
   const slot_number = req.body.slot_number;
 
   const newVaccine = new vaccines({
+    booking_id,
     username,
     adharcard,
     hospital_name,
@@ -37,6 +39,7 @@ router.route('/:id').get((req, res) => {
 router.route('/update/:id').post((req, res) => {
   Patient.findById(req.params.id)
     .then(pat => {
+      pat.booking_id=req.body.booking_id;
       pat.username = req.body.username;
       pat.adharcard = req.body.adharcard;
       pat.hospital_name= req.body.hospital_name ;

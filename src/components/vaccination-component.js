@@ -7,6 +7,7 @@ import Dial from "./Dialog.js"
 
 var arr =['Slot1','Slot2','Slot3']
 
+let booking_id = Math.floor((Math.random() * 100000000000) + 1);
 
 export default function Form(props) {
   const [user, setName] = useState('');
@@ -17,6 +18,7 @@ export default function Form(props) {
   const [re,setRe]=useState();
   const [id,setId]=useState('63d6870faea4cc23849192e1');
   const[hospital,setHospital]=useState('Dayanand Sagar');
+  const[pop,setPop]=useState(false);
   
   useEffect(()=>{
     
@@ -63,8 +65,15 @@ export default function Form(props) {
 
   console.log("Rendered")
  
+  function handlePopUp(event) {
+    setPop(prev=>!prev)
+  }
+
+
+
   function handleSubmit(event) {
     const obj={
+        booking_id:booking_id,
         username:user,
         adharcard:adhar,
         hospital_name: hospital,
@@ -72,18 +81,14 @@ export default function Form(props) {
         slot_number:slot
     }
     
-    async function getRandomIntInclusive(min, max) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
-    }
-    const booking_id=getRandomIntInclusive(0,10000000000);
+    
+    
     console.log(booking_id)
 
     event.preventDefault();
     
     
-
+    setPop(prev=>!prev);
  
     axios.post('http://localhost:5000/bookings/add',obj)
       .then(res => {console.log(res)
@@ -156,11 +161,10 @@ export default function Form(props) {
  
  
   
-const datas="suwiiii"
   
   return (
     <div>
-      <Dial data={datas}/>
+   { pop && <Dial data={booking_id} handlePopUp={handlePopUp}/>}
       <h1>Vaccination Booking</h1>
     <form onSubmit={handleSubmit}>
       <label>

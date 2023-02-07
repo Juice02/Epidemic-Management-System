@@ -7,6 +7,10 @@ import {Button,
         DialogTitle} from "@mui/material";
 const Dial = (props) => {
     const [open,setOpen]=useState(true);
+    function handleClick(event) {
+        setOpen(false)
+        props.handlePopUp();
+    }
     return ( 
     <div>
     <Button onClick={()=>setOpen(true)}>Open Dialog </Button>
@@ -14,11 +18,12 @@ const Dial = (props) => {
     <DialogTitle>Booking Confirmed</DialogTitle>
     <DialogContent>
     <DialogContentText>
-        {props.data}
+       
+        Booking id:{props.data}
      </DialogContentText>
      </DialogContent>
      <DialogActions>
-     <Button onClick={()=>setOpen(false)}>Close</Button>
+     <Button onClick={handleClick}>Close</Button>
      </DialogActions>
     </Dialog>
     </div>
