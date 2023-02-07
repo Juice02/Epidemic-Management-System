@@ -37,7 +37,7 @@ export default class Navbar extends Component {
             Vaccination
           </NavLink>
           <NavLink
-            to='/hos-list'
+            to='/hos-search'
             className='navbar-item'
             activeClassName='is-active'
           >

@@ -12,7 +12,7 @@ router.route('/add').post((req, res) => {
   const username = req.body.username;
   const adharcard = req.body.adharcard;
   const  hospital_name= req.body.hospital_name ;
-  const date = Date.parse(req.body.date);
+  const date = req.body.date;
   const slot_number = req.body.slot_number;
 
   const newVaccine = new vaccines({
@@ -43,7 +43,7 @@ router.route('/update/:id').post((req, res) => {
       pat.username = req.body.username;
       pat.adharcard = req.body.adharcard;
       pat.hospital_name= req.body.hospital_name ;
-      pat.date = Date.parse(req.body.date);
+      pat.date = req.body.date;
       pat.slot_number = req.body.slot_number;
 
       pat.save()

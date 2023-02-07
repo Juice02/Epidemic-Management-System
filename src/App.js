@@ -18,6 +18,7 @@ import Vaccination from "./components/vaccines";
 import Newvax from "./components/vaccination-component";
 import XY from "./components/Dialog"; 
 import Post_log from "./components/after-login-comp"; 
+import Hos_search from "./components/hospital-search";
 
 
 
@@ -29,6 +30,7 @@ function App() {
     <br/> 
    
         <Routes>
+           <Route path="/hos-search" element={<Hos_search />} /> 
              <Route path="/signup" element={<Signup />} /> 
              <Route path="/post-login" element={<Post_log />} /> 
              <Route path="/signin" element={<Login />} /> 

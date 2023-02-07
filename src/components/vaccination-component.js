@@ -84,7 +84,7 @@ export default function Form(props) {
     
     
     
-    console.log(booking_id)
+    console.log(obj.date)
 
     event.preventDefault();
     
@@ -169,7 +169,7 @@ export default function Form(props) {
       <h1>Vaccination Booking</h1>
     <form onSubmit={handleSubmit}>
       <label>
-        Username:
+        Name:
         <input
           type="text"
           name="name"
