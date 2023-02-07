@@ -14,7 +14,7 @@ export default class CreateExercise extends Component {
     this.onChangestatus = this.onChangestatus.bind(this);
     this.onChangeP_history = this.onChangeP_history.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-
+    
     this.state = {
         pid:'',
         pname: '',
@@ -83,11 +83,11 @@ export default class CreateExercise extends Component {
       .then(res => console.log(res.data));
 
       e.preventDefault();
-   // window.location = '/pat-search';
+   window.location = '/pat-search';
     
   }
 
-status=[
+status=['',
     'Active',
     'Recovered',
     'Deceased'

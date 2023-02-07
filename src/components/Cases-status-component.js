@@ -21,7 +21,7 @@ useEffect(() => {
     .then((res) => {
         setDataTable(res.data);
         res.data.forEach((item) => {
-            if (item.status === "Active") {
+            if (item.status ==="Active") {
              setActiveCount((prevActiveCount) => prevActiveCount + 1);
             } else if (item.status==="Recovered") {
              setRecoveredCount((prevRecoveredCount) => prevRecoveredCount + 1);
