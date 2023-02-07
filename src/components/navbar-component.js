@@ -30,7 +30,7 @@ export default class Navbar extends Component {
           }`}
         >
           <NavLink
-            to='/vacc-booking'
+            to='/VACC'
             className='navbar-item'
             activeClassName='is-active'
           >

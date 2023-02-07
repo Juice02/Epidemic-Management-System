@@ -64,7 +64,7 @@ export default class CreateExercise extends Component {
   }
 
   onSubmit(e) {
-    e.preventDefault();
+    
 
     const patient = {
 
@@ -82,10 +82,12 @@ export default class CreateExercise extends Component {
     axios.post('http://localhost:5000/patients/add', patient)
       .then(res => console.log(res.data));
 
-    window.location = '/pat-list';
+      e.preventDefault();
+   // window.location = '/pat-search';
+    
   }
 
-sta=[
+status=[
     'Active',
     'Recovered',
     'Deceased'
@@ -143,7 +145,7 @@ sta=[
               value={this.state.status}
               onChange={this.onChangestatus}>
               {
-                this.sta.map(function(user) {
+                this.status.map(function(user) {
                   return <option 
                     key={user}
                     value={user}>{user}
