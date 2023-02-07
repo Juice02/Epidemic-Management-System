@@ -27,7 +27,7 @@ export default class Navbar extends Component{
           <NavLink to='/hos-list' activeStyle>
             Hospital Data
           </NavLink>
-          <NavLink to='/ye' activeStyle>
+          <NavLink to='/signup' activeStyle>
           lolol
         </NavLink>
         </NavMenu>

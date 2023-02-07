@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css"
-
+import Signup from "./components/signup-component";
+import Login from "./components/login-component";
 import Combine from "./components/combined-component";
 import Navbar from "./components/navbar-component";
 import Hosdata from "./components/hospital-data-component";
@@ -13,7 +14,7 @@ import Activemap from "./components/active-map";
 import Obj from "./components/patient-search";
 import Vaccination from "./components/vaccines";
 import Newvax from "./components/vaccination-component";
-import XY from "./components/Dialog";
+import XY from "./components/Dialog"; 
 
 
 
@@ -25,8 +26,8 @@ function App() {
     <br/> 
    
         <Routes>
-             
-            
+             <Route path="/signup" element={<Signup />} /> 
+             <Route path="/signin" element={<Login />} /> 
              <Route path="/" element={<CaseStatus/>} /> 
              <Route path="/ye" element={<XY/>} /> 
             <Route path="/vacc-booking" element={<Newvax/>} />
