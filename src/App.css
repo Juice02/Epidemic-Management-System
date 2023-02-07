@@ -44,13 +44,13 @@ body {
   width: 200px;
   height: 60px;
   font-size: 20px;
-  border-radius: 25px;
+  border-radius:5px;
   border: none;
   background-color:rgb(140, 140, 230);
   color: #FFFFFF;
   cursor: pointer;
   outline: none;
-  box-shadow: 0px 4px #B0E0E6;
+  
   transition: all 0.3s;
  margin-left: 500px;
  margin-top: 50px;
@@ -77,6 +77,27 @@ body {
 }
 
 .hellopat:hover {
+  box-shadow: 0px 0px #B0E0E6;
+  background-color: gray;
+}
+
+.smol {
+  width: 20%;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 0.25rem;
+  border: none;
+  background-color:rgb(140, 140, 230);
+  color: #FFFFFF;
+  cursor: pointer;
+  outline: none;
+ 
+  transition: all 0.3s;
+ margin: 900px;
+
+ margin-top: 50px;
+}
+.smol:hover {
   box-shadow: 0px 0px #B0E0E6;
   background-color: gray;
 }

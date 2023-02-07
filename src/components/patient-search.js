@@ -91,6 +91,8 @@ export default function Form(props) {
     <button onClick={()=>window.location = '/create'} className='hellopat'>
         CREATE NEW</button>
     </div>
+    <div><button onClick={()=>window.location = '/list'} className='smol'>
+    Edit Patient Database</button></div>
         </div>
 
       );

@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css"
 
 
+import LIST from "./components/patient-list-component";
 import Signup from "./components/signup-component";
 import Login from "./components/login-component";
 import Combine from "./components/combined-component";
@@ -30,6 +31,7 @@ function App() {
     <br/> 
    
         <Routes>
+        <Route path="/list" element={<LIST />} /> 
            <Route path="/hos-search" element={<Hos_search />} /> 
              <Route path="/signup" element={<Signup />} /> 
              <Route path="/post-login" element={<Post_log />} /> 
