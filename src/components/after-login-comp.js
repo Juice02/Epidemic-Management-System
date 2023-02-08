@@ -7,7 +7,7 @@ const FlexContainer = () => (
     <Link to='/pat-search'>
       <button className='button'>Patient Data</button>
     </Link>
-    <Link to='/pageY'>
+    <Link to='/create-hos'>
       <button className='button'>Hospital Resources</button>
     </Link>
   </div>

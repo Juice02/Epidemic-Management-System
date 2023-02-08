@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css"
 
+import YEE from "./components/create-hospital";
 import VACC from "./components/vaccine-search";
 import LIST from "./components/patient-list-component";
 import Signup from "./components/signup-component";
@@ -31,6 +32,7 @@ function App() {
     <br/> 
    
         <Routes>
+            <Route path="/create-hos" element={<YEE />} /> 
              <Route path="/VACC" element={<VACC />} /> 
              <Route path="/list" element={<LIST />} /> 
              <Route path="/hos-search" element={<Hos_search />} /> 
